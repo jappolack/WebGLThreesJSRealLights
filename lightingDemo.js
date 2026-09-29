@@ -8,7 +8,7 @@ const lightHelpers = [];
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x87ceeb);
-scene.fog = new THREE.Fog(0x87ceeb, 45, 110);
+scene.fog = new THREE.Fog(0x87ceeb, .01, 500);
 
 ////////////////////////////////////////////////
 // Camera
@@ -450,7 +450,7 @@ const moonMarker = lightMarker(0x4444ff);
 ////////////////////////////////////////////////
 
 const houseLight = new THREE.PointLight(
-    0xffddaa,
+    0xbb99ee,
     0,
     20
 );
@@ -505,8 +505,8 @@ const flashMarker = lightMarker(0xffffff);
 const tv = new THREE.Mesh(
     new THREE.BoxGeometry(2, 1.5, 0.2),
     new THREE.MeshStandardMaterial({
-        color: 0x0000ff,
-        emissive: 0x0000ff,
+        color: 0xbb99ee,
+        emissive: 0xff3020,
         emissiveIntensity: 1
     })
 );
@@ -526,6 +526,14 @@ tvLight.position.set(5.2, 3, 0);
 
 scene.add(tvLight);
 const tvMarker = lightMarker(0x00ffff);
+
+const lightning= new THREE.PointLight(0xffffff,0,40);
+lightning.position.set(-3,6,-8);
+scene.add(lightning);
+
+const fireLight = new THREE.PointLight(0xff5500,5,15);
+scene.add(fireLight);
+fireLight.position.set(9,1,0);
 ////////////////////////////////////////////////
 // State
 ////////////////////////////////////////////////
@@ -786,6 +794,12 @@ function animate()
             );
             scene.fog.color.copy(scene.background);
     }
+    if(Math.random() > 0.99){
+        lightning.intensity =100;
+    }else{
+        lightning.intensity = 0
+    }
+    fireLight.intensity=5+ Math.sin(Date.now(0*.02));
 
     sunMarker.position.copy(sun.position);
     moonMarker.position.copy(moon.position);
