@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three.js Lighting Demo</title>
+
+<style>
+
+body{
+    margin:0;
+    overflow:hidden;
+    font-family:Arial;
+}
+
+#instructions{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:rgba(255,255,255,.9);
+    padding:15px;
+    border-radius:10px;
+    max-width:320px;
+    line-height:1.5;
+    z-index:100;
+}
+
+h2{
+    margin-top:0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="instructions">
+
+<h2>Three.js Lighting Demo</h2>
+
+<b>Time Controls</b><br>
+D = Day<br>
+S = Sunset<br>
+N = Night<br>
+A = Auto Day/Night<br><br>
+
+<b>Light Controls</b><br>
+I = Ambient Light<br>
+H = Hemisphere Light<br>
+U = Sun Light<br>
+M = Moon Light<br>
+L = House Lights<br>
+P = Porch Light<br>
+F = Flashlight<br>
+T = TV Light<br>
+0 = Toggle All Lights<br><br>
+
+<b>Sun Color</b><br>
+2 = Orange Sun<br>
+3 = Red Sun<br>
+4 = White Sun<br><br>
+
+1 = Toggle Light Helpers<br><br>
+
+<b>Move Sun</b><br>
+Arrow Keys<br><br>
+
+Yellow Sphere = Sun<br>
+Blue Sphere = Moon<br>
+White Sphere = Flashlight<br>
+Orange Sphere = Porch Light<br>
+Cyan Sphere = TV Light
+</div>
+
+<script type="module" src="lightingDemo.js"></script>
+
+</body>
+</html>
